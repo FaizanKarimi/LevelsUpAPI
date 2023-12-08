@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <UserSecretsId>fa057ef0-4028-4420-83c4-5d84783a38fb</UserSecretsId>
+    <CodeAnalysisRuleSet>..\.sonarlint\levelsupapicsharp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20231205094346_Category-Table-Added.cs" />
+    <Compile Remove="Migrations\20231205094346_Category-Table-Added.Designer.cs" />
+    <Compile Remove="Migrations\20231205101445_SubCategory-Table-Added.cs" />
+    <Compile Remove="Migrations\20231205101445_SubCategory-Table-Added.Designer.cs" />
+    <Compile Remove="Migrations\20231205101754_SubCategory-Table-Added.cs" />
+    <Compile Remove="Migrations\20231205101754_SubCategory-Table-Added.Designer.cs" />
+    <Compile Remove="Migrations\20231205104914_Categories-Table-Added.cs" />
+    <Compile Remove="Migrations\20231205104914_Categories-Table-Added.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="..\.sonarlint\levelsupapi\CSharp\SonarLint.xml" Link="SonarLint.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
