@@ -15,8 +15,8 @@ namespace Identity
 {
     /// Add-Migration MyMigration -Project Identity -StartupProject LevelsUpAPI for adding the migration
     /// Update-Database for simple update the migrations
-    /// Remove-Migration
-    /// Update-Database -migration MigrationName
+    /// Remove-Migration for simple remove the last migration 
+    /// Update-Database -migration MigrationName for updating the database to the specific migration
 
     /// <summary>
     /// LevelsUpDbContext class

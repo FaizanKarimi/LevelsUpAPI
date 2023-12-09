@@ -468,8 +468,6 @@ namespace BusinessOperations.Implementations
 
             Dictionary<string, object> claimsDictionary = claims.ToDictionary(x => x.Type, x => (object)x.Value);
 
-            var hmax = new HMACSHA256();
-
             SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor()
             {
                 Subject = new ClaimsIdentity(claims, Constants.TokenType),
@@ -478,7 +476,7 @@ namespace BusinessOperations.Implementations
                 SigningCredentials = new SigningCredentials(this._jsonWebTokenSetting.Key.ConvertToSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256),
                 IssuedAt = DateTime.UtcNow,
                 Issuer = this._jsonWebTokenSetting.Issuer,
-                Audience = this._jsonWebTokenSetting.Issuer,
+                Audience = this._jsonWebTokenSetting.Issuer
             };
 
             SecurityToken jwtToken = this._jwtSecurityTokenHandler.CreateToken(tokenDescriptor);
