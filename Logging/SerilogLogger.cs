@@ -1,10 +1,8 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Runtime.CompilerServices;
 using Infrastructure.Common;
 using Infrastructure.ExtensionMethods.Framework;
 using Microsoft.AspNetCore.Http;
-using Serilog;
 using Serilog.Context;
 using Serilog.Events;
 
@@ -52,15 +50,7 @@ namespace Logging
         /// <param name="fileName">Name of the file.</param>
         public void Debug(string message = "", string emailAddress = "", [CallerMemberName] string memberName = "", [CallerLineNumber] int lineNumber = 0, [CallerFilePath] string fileName = "")
         {
-            try
-            {
-                this.LogMessge(message, memberName, this._GetFileName(fileName), lineNumber, LogEventLevel.Information);
-            }
-            finally
-            {
-                // Dispose and cleaning of the Log file resources
-                Log.CloseAndFlush();
-            }
+            this.LogMessge(message, memberName, this._GetFileName(fileName), lineNumber, LogEventLevel.Information);
         }
         #endregion
 
@@ -84,10 +74,10 @@ namespace Logging
                                 switch (logEventLevel)
                                 {
                                     case LogEventLevel.Debug:
-                                        Serilog.Log.Debug(message);
+                                        this._logger.Debug(message);
                                         break;
                                     case LogEventLevel.Information:
-                                        Serilog.Log.Information(message);
+                                        this._logger.Information(message);
                                         break;
                                     case LogEventLevel.Warning:
                                         this._logger.Warning(message);

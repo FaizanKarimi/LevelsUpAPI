@@ -16,6 +16,7 @@ using Infrastructure.Common;
 using Infrastructure.Configurations;
 using Infrastructure.ExtensionMethods.Framework;
 using Infrastructure.Helpers;
+using LevelsUpAPI.BackgroundServices;
 using LevelsUpAPI.Binders;
 using LevelsUpAPI.Factory;
 using LevelsUpAPI.Filters;
@@ -336,6 +337,15 @@ namespace LevelsUpAPI.Extensions
         public static void AddAutoMapperConfiguration(this IServiceCollection services)
         {
             services.AddAutoMapper(typeof(IAutoMapper).Assembly);
+        }
+
+        /// <summary>
+        /// Adds the background services.
+        /// </summary>
+        /// <param name="services">The services.</param>
+        public static void AddBackgroundServices(this IServiceCollection services)
+        {
+            services.AddHostedService<DeleteRevokedRefreshTokens>();
         }
 
         /// <summary>

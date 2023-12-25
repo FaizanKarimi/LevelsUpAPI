@@ -1,6 +1,4 @@
 ﻿using System;
-using Infrastructure.Helpers;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure.Exceptions
 {

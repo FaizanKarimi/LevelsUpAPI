@@ -32,7 +32,9 @@ namespace LevelsUpAPI
             Serilog.Debugging.SelfLog.Enable(msg =>
             {
                 Debug.Print(msg);
+#if DEBUG
                 //Debugger.Break();
+#endif
             });
 
             try

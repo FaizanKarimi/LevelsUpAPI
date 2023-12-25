@@ -98,6 +98,9 @@ namespace LevelsUpAPI
             // Add application level business operations
             services.AddBusinessOperations();
 
+            // Add the background services
+            services.AddBackgroundServices();
+
             // Configure the hangfire server
             services.ConfigureHangfire();
 
